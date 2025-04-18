@@ -31,7 +31,10 @@ const Projects: React.FC = () => {
       title: "Marine Life Detection Tool (Personal Project)",
       description: "Personal project: Built a detection tool for marine life and fish abundance using Deep Learning and YOLO v3. Helps scuba divers and marine biologists identify fish species in real-time videos through an interactive UI.",
       technologies: ["Deep Learning", "YOLO v3", "Computer Vision", "Python", "GitHub: GeorgeJM97/Yolov3-Underwater-Detection"],
-      image: "https://images.unsplash.com/photo-1518399681705-1c1a55e5e883?auto=format&fit=crop&w=800",
+      media: {
+        type: "video",
+        src: `${process.env.PUBLIC_URL}/result-shark.mp4`
+      },
       link: "https://github.com/GeorgeJM97/Yolov3-Underwater-Detection"
     },
     {
@@ -69,7 +72,20 @@ const Projects: React.FC = () => {
             tabIndex={project.link ? 0 : undefined}
           >
             <div className="project-image">
-              <img src={project.image} alt={project.title} />
+              {project.media?.type === "video" ? (
+                <video 
+                  src={project.media.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="project-media"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  preload="auto"
+                />
+              ) : (
+                <img src={project.image} alt={project.title} className="project-media" />
+              )}
             </div>
             <div className="project-content">
               <h3 className="project-title">
