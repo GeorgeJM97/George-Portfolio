@@ -3,7 +3,7 @@ import './Navbar.css';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,11 +14,11 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
     }
   };
 
@@ -30,30 +30,20 @@ const Navbar: React.FC = () => {
             George Malayil
           </a>
         </div>
-        
+        <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+          <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>Home</a>
+          <a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>Projects</a>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact</a>
+        </div>
         <button 
-          className="mobile-menu-button"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className={`mobile-menu-button ${isMenuOpen ? 'active' : ''}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
-          aria-expanded={isMobileMenuOpen}
         >
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
         </button>
-
-        <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-          <li>
-            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>
-              Projects
-            </a>
-          </li>
-        </ul>
       </div>
     </nav>
   );
