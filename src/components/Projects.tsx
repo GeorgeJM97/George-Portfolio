@@ -60,16 +60,22 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="projects">
+    <section id="projects" className="projects" aria-label="Featured Projects">
       <h2 className="section-title">Featured Projects</h2>
-      <div className="projects-grid">
+      <div className="projects-grid" role="list">
         {projects.map((project, index) => (
           <div 
-            key={index} 
+            key={index}
             className={`project-card ${project.link ? 'clickable' : ''}`}
-            onClick={() => handleCardClick(project.link)}
-            role={project.link ? "button" : undefined}
-            tabIndex={project.link ? 0 : undefined}
+            onClick={() => project.link && handleCardClick(project.link)}
+            role={project.link ? "link" : "listitem"}
+            tabIndex={project.link ? 0 : -1}
+            aria-label={project.link ? `View ${project.title} project` : project.title}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && project.link) {
+                handleCardClick(project.link);
+              }
+            }}
           >
             <div className="project-image">
               {project.media?.type === "video" ? (
@@ -117,9 +123,11 @@ const Projects: React.FC = () => {
                 )}
               </h3>
               <p className="project-description">{project.description}</p>
-              <div className="technologies">
+              <div className="technologies" role="list">
                 {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="tech-tag">{tech}</span>
+                  <span key={techIndex} className="tech-tag" role="listitem">
+                    {tech}
+                  </span>
                 ))}
               </div>
             </div>

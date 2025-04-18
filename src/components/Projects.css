@@ -50,7 +50,11 @@
 }
 
 .project-card.clickable:focus {
-  outline: 2px solid #007bff;
+  outline: none;
+}
+
+.project-card.clickable:focus-visible {
+  outline: 2px solid #0071e3;
   outline-offset: 2px;
 }
 

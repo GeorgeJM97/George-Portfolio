@@ -36,26 +36,34 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="hero" ref={heroRef}>
+    <section id="home" className="hero" ref={heroRef} aria-label="Introduction">
       <div className="hero-content">
         <div className="hero-text">
           <h1 className="hero-title">
             Hello there! I'm <span className="gradient-text">George Malayil</span>
           </h1>
           <p className="hero-description">
-          A passionate UI/UX Developer crafting aesthetic and intuitive digital experiences.
-          I build smooth, scalable interfaces that feel good to use—on any device, and most importantly, for everyone.
+            A passionate UI/UX Developer crafting aesthetic and intuitive digital experiences.
+            I build smooth, scalable interfaces that feel good to use—on any device, and most importantly, for everyone.
           </p>
-          <div className="hero-buttons">
-            <button className="cta-button primary" onClick={scrollToProjects}>
+          <div className="hero-buttons" role="group" aria-label="Navigation actions">
+            <button 
+              className="cta-button primary" 
+              onClick={scrollToProjects}
+              aria-label="View my projects"
+            >
               View My Work
             </button>
-            <button className="cta-button" onClick={scrollToContact}>
+            <button 
+              className="cta-button" 
+              onClick={scrollToContact}
+              aria-label="Contact me"
+            >
               Contact Me
             </button>
           </div>
         </div>
-        <div className="floating-devices">
+        <div className="floating-devices" aria-hidden="true">
           <div className="device iphone">
             <div className="screen">
               <div className="app-preview"></div>
