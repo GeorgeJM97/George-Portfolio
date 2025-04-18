@@ -53,16 +53,6 @@ const Navbar: React.FC = () => {
               Projects
             </a>
           </li>
-          <li>
-            <a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>
-              Skills
-            </a>
-          </li>
-          <li>
-            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>
-              Contact
-            </a>
-          </li>
         </ul>
       </div>
     </nav>

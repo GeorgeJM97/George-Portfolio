@@ -1,37 +1,72 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Hero.css';
 
 const Hero: React.FC = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroRef.current) observer.observe(heroRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero" ref={heroRef}>
       <div className="hero-content">
-        <h1 className="hero-title">
-          Hi, I'm <span className="highlight">George Malayil</span>
-        </h1>
-        <h2 className="hero-subtitle">Software Engineer & UI/UX Developer</h2>
-        <p className="hero-description">
-          Software engineer with expertise in UI/UX development. Responsible for creating scalable, resilient and reusable
-          code for front end applications. Electronics and Communication graduate with minor degree in Computer Science.
-        </p>
-        <div className="contact-info">
-          <p><a href="mailto:georgejm1997@gmail.com">georgejm1997@gmail.com</a> | +91 8867685890</p>
-          <p>Bangalore, India | <a href="https://linkedin.com/in/george-malayi-88233718a" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        <div className="hero-text">
+          <h1 className="hero-title">
+            Hello there! I'm <span className="gradient-text">George Malayil</span>
+          </h1>
+          <p className="hero-description">
+          A passionate UI/UX Developer crafting aesthetic and intuitive digital experiences.
+          I build smooth, scalable interfaces that feel good to use—on any device, and most importantly, for everyone.
+          </p>
+          <div className="hero-buttons">
+            <button className="cta-button primary" onClick={scrollToProjects}>
+              View My Work
+            </button>
+            <button className="cta-button" onClick={scrollToContact}>
+              Contact Me
+            </button>
+          </div>
         </div>
-        <div className="hero-buttons">
-          <a href="#projects" className="cta-button primary">
-            View My Work
-          </a>
-          <a href="#contact" className="cta-button secondary">
-            Get in Touch
-          </a>
+        <div className="floating-devices">
+          <div className="device iphone">
+            <div className="screen">
+              <div className="app-preview"></div>
+            </div>
+          </div>
+          <div className="device macbook">
+            <div className="screen">
+              <div className="desktop-preview"></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="hero-image">
-        <img 
-          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800"
-          alt="Developer workspace with laptop and code"
-          className="profile-image"
-        />
       </div>
     </section>
   );
