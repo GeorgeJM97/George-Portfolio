@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
       title: "Sunbelt Rentals Mobile App",
       description: "As part of the Publicis Sapient team, contributed to the development of Sunbelt Rentals' mobile app for iOS and Android platforms. Built key features for equipment browsing, rental management, and location services using React Native. Collaborated with the team to ensure successful app store deployments.",
       technologies: ["React Native", "Redux", "TypeScript", "iOS", "Android"],
-      image: "/sunbeltmobileapp.png",
+      image: `${process.env.PUBLIC_URL || ''}/sunbeltMobileApp.png`,
       links: {
         ios: "https://apps.apple.com/ca/app/sunbelt-rentals/id1553310095",
         android: "https://play.google.com/store/apps/details?id=com.sunbeltrentals.mobileapp&hl=en_IN"
@@ -38,14 +38,14 @@ const Projects: React.FC = () => {
       title: "Sunbelt Rentals Location Finder",
       description: "Led the development of the location finder page with interactive map, custom markers and clustering. Implemented dynamic store location data loading and Google Maps integration. Optimized for mobile devices to help customers find 1000+ rental locations.",
       technologies: ["React.js", "Google Maps API", "TypeScript"],
-      image: "/map.png",
+      image: `${process.env.PUBLIC_URL || ''}/map.png`,
       link: "https://www.sunbeltrentals.com/locations"
     },
     {
       title: "Store Location Street View",
       description: "Ideated and executed the development of an enhanced location finder with Street View integration, allowing customers to virtually explore rental locations. Implemented seamless transitions between map and street view with optimized mobile experience.",
       technologies: ["React.js", "Google Street View API", "TypeScript"],
-      image: "/streetview.png",
+      image: `${process.env.PUBLIC_URL || ''}/streetview.png`,
       link: "https://www.sunbeltrentals.com/location/me/augusta/equipment-tool-rentals/1478/"
     }
   ];
