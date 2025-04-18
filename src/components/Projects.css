@@ -1,5 +1,6 @@
 .projects {
   padding: 5rem 2rem;
+  padding-top: 6rem;
   background-color: #f8f9fa;
 }
 
@@ -180,11 +181,11 @@
 @media (max-width: 768px) {
   .projects {
     padding: 3rem 1rem;
+    padding-top: 7rem;
   }
 
   .section-title {
     font-size: 2rem;
-    margin-bottom: 2rem;
   }
 
   .projects-grid {
