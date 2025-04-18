@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
     },
     {
       title: "Fitness Marketplace (Personal Project)",
-      description: "Personal project: Built a fitness recommendations platform using React and Cursor AI. Features include personalized workout plans, progress tracking, and trainer connections. Published as a marketplace for fitness enthusiasts to discover and share workout plans.",
+      description: "Personal Project: Built a fitness marketplace using React and Cursor AI. The platform helps users discover nearby fitness classes, connect with local trainers, and provides a space for aspiring trainers to grow their audience.",
       technologies: ["React", "TypeScript", "Cursor AI", "Node.js", "GitHub: GeorgeJM97/mytrainer"],
       image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800",
       link: "https://georgejm97.github.io/mytrainer/"
