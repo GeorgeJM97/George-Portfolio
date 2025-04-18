@@ -29,7 +29,7 @@ const Projects: React.FC = () => {
     },
     {
       title: "Marine Life Detection Tool (Personal Project)",
-      description: "Personal project: Built a detection tool for marine life and fish abundance using Deep Learning and YOLO v3. Aimed to Help scuba divers and marine biologists identify fish species in real-time videos through an interactive UI.",
+      description: "Personal project: Built a detection tool for marine life and fish abundance using Deep Learning and YOLO v3. Aimed to help scuba divers and marine biologists identify fish species in real-time videos through an interactive UI.",
       technologies: ["Deep Learning", "YOLO v3", "Computer Vision", "Python", "GitHub: GeorgeJM97/Yolov3-Underwater-Detection"],
       media: {
         type: "video",
